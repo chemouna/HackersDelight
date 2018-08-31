@@ -104,30 +104,39 @@ public class Chapter2Test {
     public void testTurnOffTrailingOnes() {
         int i = Integer.valueOf("1000000000000000000000000010111", 2);
         int j = Integer.valueOf("1000000000000000000000000010000", 2);
-
         i = turnOffTrailingOnes(i);
-
         assertEquals(j, i);
 
         i = Integer.valueOf("1111111111111111111111111111111", 2);
         j = Integer.valueOf("0000000000000000000000000000000", 2);
-
         i = turnOffTrailingOnes(i);
-
         assertEquals(j, i);
 
         i = Integer.valueOf("1000000000000000000000000000000", 2);
         j = Integer.valueOf("1000000000000000000000000000000", 2);
-
         i = turnOffTrailingOnes(i);
-
         assertEquals(j, i);
 
         i = Integer.valueOf("0000000000000000000000000000000", 2);
         j = Integer.valueOf("0000000000000000000000000000000", 2);
-
         i = turnOffTrailingOnes(i);
-
         assertEquals(j, i);
+    }
+
+    @Test
+    public void testIsOfFormPowerOfTwoMinusOne() {
+        assertTrue(isOfFormPowerOfTwoMinusOne(0));
+        assertTrue(isOfFormPowerOfTwoMinusOne(1));
+        assertTrue(isOfFormPowerOfTwoMinusOne(3));
+        assertTrue(isOfFormPowerOfTwoMinusOne(7));
+        assertTrue(isOfFormPowerOfTwoMinusOne(15));
+
+        assertFalse(isOfFormPowerOfTwoMinusOne(2));
+        assertFalse(isOfFormPowerOfTwoMinusOne(4));
+        assertFalse(isOfFormPowerOfTwoMinusOne(5));
+        assertFalse(isOfFormPowerOfTwoMinusOne(6));
+        assertFalse(isOfFormPowerOfTwoMinusOne(8));
+        assertFalse(isOfFormPowerOfTwoMinusOne(9));
+        assertFalse(isOfFormPowerOfTwoMinusOne(10));
     }
 }
