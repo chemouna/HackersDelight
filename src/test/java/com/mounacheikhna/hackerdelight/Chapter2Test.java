@@ -185,4 +185,28 @@ public class Chapter2Test {
         i = onBitInPositionOfRightMostOffBit(i);
         assertEquals(j, i);
     }
+
+    @Test
+    public void testOffBitInPositionOfRightMostOnBitRestOnes() {
+        int i = Integer.valueOf("1000000000000000000000000010000", 2);
+        String j =                 "11111111111111111111111111101111";
+        i = offBitInPositionOfRightMostOnBitRestOnes(i);
+        assertEquals(j, Integer.toBinaryString(i));
+
+        i = Integer.valueOf("1000000000000000000000000011111", 2);
+        j =                    "11111111111111111111111111111110";
+        i = offBitInPositionOfRightMostOnBitRestOnes(i);
+        assertEquals(j, Integer.toBinaryString(i));
+
+        i = Integer.valueOf("1000000000000000000000000001010", 2);
+        j =                    "11111111111111111111111111111101";
+        i = offBitInPositionOfRightMostOnBitRestOnes(i);
+        assertEquals(j, Integer.toBinaryString(i));
+
+        i = Integer.valueOf("0000000000000000000000010100111", 2);
+        j =                    "11111111111111111111111111111110";
+        i = offBitInPositionOfRightMostOnBitRestOnes(i);
+        assertEquals(j, Integer.toBinaryString(i));
+    }
+
 }

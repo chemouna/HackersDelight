@@ -45,15 +45,15 @@ public class Chapter2 {
     }
 
     /**
-     *  Create a word with a single 1-bit at the position of the rightmost 0-bit in x, producing 0 if none
+     *  Create an int with a single 1-bit at the position of the rightmost 0-bit in x, producing 0 if none
      *  (e.g., 10100111 -> 00001000): turn on trailing in 10100111 => 10100111
      *
      * x:                10100111  = 1 + 2 + 4 + 32 + 128 = 167
-     * neg x:            01011000
+     * ¬x:            01011000
      * x + 1:            10101000  = 8 + 32 + 128 = 169
-     * (neg x) & (x+1) = 00001000
+     * ¬x & (x+1) = 00001000
      *
-     * the q to find why this works is why do neg x and x + 1 have in common only the rightmost 0 bit ->
+     * the question to find why this works is why do neg x and x + 1 have in common only the rightmost 0 bit ->
      * neg x certainly turns it into 1 since it was 0 and x + 1 turns only the right most bit into 1 and everything
      * else is same as x which means its different than neg xso their and gives only the rightmost 0 bit set
      */
@@ -61,4 +61,24 @@ public class Chapter2 {
         return ~x & (x + 1);
     }
 
+    /**
+     * Creates an int with a single 0-bit at the position of the rightmost 1-bit in x, producing all 1’s if none
+     * (e.g., 10101000 -> 11110111):
+     *
+     * ¬x | (x – 1)
+     *
+     * x:           10101000
+     *
+     * ¬x:          01010111
+     * x - 1:       10100111
+     *              --------
+     * ¬x | (x-1):  11110111
+     *
+     * similar to before ¬x and x-1 have in common the 0s place because x - 1 will make the rightmost zeros before 1
+     * become 1 and the one directly after 1 become 0 which negation does too so their or will give 0 then the rest is
+     * 1 because of or of ¬x is the inverse of x - 1 bits in the rest.
+     */
+    public static int offBitInPositionOfRightMostOnBitRestOnes(int x) {
+        return ~x | (x - 1);
+    }
 }
