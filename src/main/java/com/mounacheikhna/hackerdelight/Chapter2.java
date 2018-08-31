@@ -21,4 +21,9 @@ public class Chapter2 {
     public static boolean isOfFormPowerOfTwoMinusOne(int x) {
         return (x & (x + 1)) == 0;
     }
+
+    public static int turnOnTrailingZeros(int x) {
+        return x | (x - 1);
+    }
+
 }

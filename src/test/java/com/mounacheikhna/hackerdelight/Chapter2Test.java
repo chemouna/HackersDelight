@@ -139,4 +139,22 @@ public class Chapter2Test {
         assertFalse(isOfFormPowerOfTwoMinusOne(9));
         assertFalse(isOfFormPowerOfTwoMinusOne(10));
     }
+
+    @Test
+    public void testTurnOnTrailingZeros() {
+        int i = Integer.valueOf("1000000000000000000000000010000", 2);
+        int j = Integer.valueOf("1000000000000000000000000011111", 2);
+        i = turnOnTrailingZeros(i);
+        assertEquals(j, i);
+
+        i = Integer.valueOf("1000000000000000000000000011111", 2);
+        j = Integer.valueOf("1000000000000000000000000011111", 2);
+        i = turnOnTrailingZeros(i);
+        assertEquals(j, i);
+
+        i = Integer.valueOf("1000000000000000000000000001010", 2);
+        j = Integer.valueOf("1000000000000000000000000001011", 2);
+        i = turnOnTrailingZeros(i);
+        assertEquals(j, i);
+    }
 }
