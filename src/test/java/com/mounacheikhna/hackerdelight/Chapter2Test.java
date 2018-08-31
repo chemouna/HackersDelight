@@ -71,32 +71,32 @@ public class Chapter2Test {
     public void testTurnOnRightMostBit() {
         int i = Integer.valueOf("10111100", 2);
         int j = Integer.valueOf("10111101", 2);
-        i = turnOnRightMostOnBit(i);
+        i = turnOnRightMostOffBit(i);
         assertEquals(j, i);
 
         i = Integer.valueOf("01110111", 2);
         j = Integer.valueOf("01111111", 2);
-        i = turnOnRightMostOnBit(i);
+        i = turnOnRightMostOffBit(i);
         assertEquals(j, i);
 
         i = Integer.valueOf("00000001", 2);
         j = Integer.valueOf("00000011", 2);
-        i = turnOnRightMostOnBit(i);
+        i = turnOnRightMostOffBit(i);
         assertEquals(j, i);
 
         i = Integer.valueOf("10000000", 2);
         j = Integer.valueOf("10000001", 2);
-        i = turnOnRightMostOnBit(i);
+        i = turnOnRightMostOffBit(i);
         assertEquals(j, i);
 
         i = Integer.valueOf("00000000", 2);
         j = Integer.valueOf("00000001", 2);
-        i = turnOnRightMostOnBit(i);
+        i = turnOnRightMostOffBit(i);
         assertEquals(j, i);
 
         i = Integer.valueOf("11111111", 2);
         j = Integer.valueOf("111111111", 2);
-        i = turnOnRightMostOnBit(i);
+        i = turnOnRightMostOffBit(i);
         assertEquals(j, i);
     }
 
@@ -155,6 +155,34 @@ public class Chapter2Test {
         i = Integer.valueOf("1000000000000000000000000001010", 2);
         j = Integer.valueOf("1000000000000000000000000001011", 2);
         i = turnOnTrailingZeros(i);
+        assertEquals(j, i);
+
+        i = Integer.valueOf("0000000000000000000000010100111", 2);
+        j = Integer.valueOf("0000000000000000000000010100111", 2);
+        i = turnOnTrailingZeros(i);
+        assertEquals(j, i);
+    }
+
+    @Test
+    public void testOnBitInPositionOfRightMostOffBit() {
+        int i = Integer.valueOf("1000000000000000000000000010000", 2);
+        int j = Integer.valueOf("0000000000000000000000000000001", 2);
+        i = onBitInPositionOfRightMostOffBit(i);
+        assertEquals(j, i);
+
+        i = Integer.valueOf("1000000000000000000000000011111", 2);
+        j = Integer.valueOf("0000000000000000000000000100000", 2);
+        i = onBitInPositionOfRightMostOffBit(i);
+        assertEquals(j, i);
+
+        i = Integer.valueOf("1000000000000000000000000001010", 2);
+        j = Integer.valueOf("0000000000000000000000000000001", 2);
+        i = onBitInPositionOfRightMostOffBit(i);
+        assertEquals(j, i);
+
+        i = Integer.valueOf("0000000000000000000000010100111", 2);
+        j = Integer.valueOf("0000000000000000000000000001000", 2);
+        i = onBitInPositionOfRightMostOffBit(i);
         assertEquals(j, i);
     }
 }
