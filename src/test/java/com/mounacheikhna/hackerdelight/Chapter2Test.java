@@ -2,9 +2,7 @@ package com.mounacheikhna.hackerdelight;
 
 import org.junit.Test;
 
-import static com.mounacheikhna.hackerdelight.Chapter2.isPowerOfTwo;
-import static com.mounacheikhna.hackerdelight.Chapter2.turnOffRightMostOnBit;
-import static com.mounacheikhna.hackerdelight.Chapter2.turnOnRightMostOnBit;
+import static com.mounacheikhna.hackerdelight.Chapter2.*;
 import static org.junit.Assert.*;
 
 public class Chapter2Test {
@@ -99,6 +97,37 @@ public class Chapter2Test {
         i = Integer.valueOf("11111111", 2);
         j = Integer.valueOf("111111111", 2);
         i = turnOnRightMostOnBit(i);
+        assertEquals(j, i);
+    }
+
+    @Test
+    public void testTurnOffTrailingOnes() {
+        int i = Integer.valueOf("1000000000000000000000000010111", 2);
+        int j = Integer.valueOf("1000000000000000000000000010000", 2);
+
+        i = turnOffTrailingOnes(i);
+
+        assertEquals(j, i);
+
+        i = Integer.valueOf("1111111111111111111111111111111", 2);
+        j = Integer.valueOf("0000000000000000000000000000000", 2);
+
+        i = turnOffTrailingOnes(i);
+
+        assertEquals(j, i);
+
+        i = Integer.valueOf("1000000000000000000000000000000", 2);
+        j = Integer.valueOf("1000000000000000000000000000000", 2);
+
+        i = turnOffTrailingOnes(i);
+
+        assertEquals(j, i);
+
+        i = Integer.valueOf("0000000000000000000000000000000", 2);
+        j = Integer.valueOf("0000000000000000000000000000000", 2);
+
+        i = turnOffTrailingOnes(i);
+
         assertEquals(j, i);
     }
 }

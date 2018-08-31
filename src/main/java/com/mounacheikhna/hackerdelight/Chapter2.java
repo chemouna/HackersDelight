@@ -13,4 +13,8 @@ public class Chapter2 {
     public static int turnOnRightMostOnBit(int x) {
         return x | (x + 1);
     }
+
+    public static int turnOffTrailingOnes(int x) {
+        return x & (x + 1);
+    }
 }
