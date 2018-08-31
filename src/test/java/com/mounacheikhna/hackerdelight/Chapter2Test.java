@@ -4,12 +4,13 @@ import org.junit.Test;
 
 import static com.mounacheikhna.hackerdelight.Chapter2.isPowerOfTwo;
 import static com.mounacheikhna.hackerdelight.Chapter2.turnOffRightMostOnBit;
+import static com.mounacheikhna.hackerdelight.Chapter2.turnOnRightMostOnBit;
 import static org.junit.Assert.*;
 
 public class Chapter2Test {
 
     @Test
-    public void testTurnOffRightMostOnBitInt() {
+    public void testTurnOffRightMostOnBit() {
         int i = Integer.valueOf("0000000000000000000000000000001", 2);
         int j = Integer.valueOf("0000000000000000000000000000000", 2);
         i = turnOffRightMostOnBit(i);
@@ -66,5 +67,38 @@ public class Chapter2Test {
         assertFalse(isPowerOfTwo(3));
         assertFalse(isPowerOfTwo(9));
         assertFalse(isPowerOfTwo(17));
+    }
+
+    @Test
+    public void testTurnOnRightMostBit() {
+        int i = Integer.valueOf("10111100", 2);
+        int j = Integer.valueOf("10111101", 2);
+        i = turnOnRightMostOnBit(i);
+        assertEquals(j, i);
+
+        i = Integer.valueOf("01110111", 2);
+        j = Integer.valueOf("01111111", 2);
+        i = turnOnRightMostOnBit(i);
+        assertEquals(j, i);
+
+        i = Integer.valueOf("00000001", 2);
+        j = Integer.valueOf("00000011", 2);
+        i = turnOnRightMostOnBit(i);
+        assertEquals(j, i);
+
+        i = Integer.valueOf("10000000", 2);
+        j = Integer.valueOf("10000001", 2);
+        i = turnOnRightMostOnBit(i);
+        assertEquals(j, i);
+
+        i = Integer.valueOf("00000000", 2);
+        j = Integer.valueOf("00000001", 2);
+        i = turnOnRightMostOnBit(i);
+        assertEquals(j, i);
+
+        i = Integer.valueOf("11111111", 2);
+        j = Integer.valueOf("111111111", 2);
+        i = turnOnRightMostOnBit(i);
+        assertEquals(j, i);
     }
 }

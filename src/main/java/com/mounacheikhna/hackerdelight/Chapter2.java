@@ -10,4 +10,7 @@ public class Chapter2 {
         return x != 0 && (x & (x - 1)) == 0;
     }
 
+    public static int turnOnRightMostOnBit(int x) {
+        return x | (x + 1);
+    }
 }
